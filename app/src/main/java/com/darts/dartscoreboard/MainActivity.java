@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
     }
     //Method for Display 'FullScreen' 'No Actionbar' 'No NavigationBar'
     private void hideNavigationBar() {
+//        WindowInsetsControllerCompat controller = new WindowInsetsControllerCompat(
+//                getWindow(), findViewById(R.id.main_screen));
+//        controller.hide(WindowInsetsCompat.Type.statusBars() + WindowInsetsCompat.Type.navigationBars()) ;
+
         this.getWindow().getDecorView()
                 .setSystemUiVisibility(
                         View.SYSTEM_UI_FLAG_FULLSCREEN |
