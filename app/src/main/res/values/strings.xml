@@ -24,4 +24,11 @@
     <string name="delete_player">Delete</string>
     <string name="boolean_active">Player Selected</string>
     <string name="btn_done_AddPlayer">Done</string>
+    <string name="header_bullshot">Bullshot</string>
+    <string name="sub_header_bullshot">Who begins</string>
+    <string name="Player_one_bull">Player 1</string>
+    <string name="player_two_bull">Player 2</string>
+    <string name="Player_One">Player 1</string>
+    <string name="start_game">Start</string>
+    <string name="bullshot_back">Back</string>
 </resources>

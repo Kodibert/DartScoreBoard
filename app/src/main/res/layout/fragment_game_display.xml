@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    tools:context=".FragmentGameDisplay">
+
+
+    <TextView
+        android:id="@+id/in_game_Player_one"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:text="@string/Player_One"
+        android:textAlignment="center"
+        android:textColor="@color/yellow"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/player_one_score"
+        app:layout_constraintEnd_toEndOf="@+id/player_one_score"
+        app:layout_constraintStart_toStartOf="@+id/player_one_score"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/in_game_Player_Two"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:text="@string/player_two_bull"
+        android:textAlignment="center"
+        android:textColor="@color/yellow"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/player_two_score"
+        app:layout_constraintEnd_toEndOf="@+id/player_two_score"
+        app:layout_constraintStart_toStartOf="@+id/player_two_score"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/player_one_score"
+        android:layout_width="330dp"
+        android:layout_height="290dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/border"
+        android:outlineAmbientShadowColor="@color/yellow"
+        android:outlineSpotShadowColor="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/game_stats"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+
+        <FrameLayout
+            android:id="@+id/frame_count_player_one"
+            android:layout_width="308dp"
+            android:layout_height="195dp"
+            android:background="@drawable/border_count"
+            tools:layout_editor_absoluteX="33dp"
+            tools:layout_editor_absoluteY="95dp" />
+
+        <TextView
+            android:id="@+id/count_player_one"
+            android:layout_width="310dp"
+            android:layout_height="192dp"
+            android:text="501"
+            android:textAlignment="center"
+            android:textColor="@color/orange"
+            android:textSize="160sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/game_stats"
+        android:layout_width="100dp"
+        android:layout_height="290dp"
+        android:background="@drawable/border"
+        android:outlineAmbientShadowColor="@color/yellow"
+        android:outlineSpotShadowColor="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/player_two_score"
+        android:layout_width="330dp"
+        android:layout_height="290dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/border"
+        android:outlineAmbientShadowColor="@color/yellow"
+        android:outlineSpotShadowColor="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/game_stats"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <FrameLayout
+            android:id="@+id/frame_count_player_two"
+            android:layout_width="308dp"
+            android:layout_height="195dp"
+            android:background="@drawable/border_count_wait"
+            tools:layout_editor_absoluteX="33dp"
+            tools:layout_editor_absoluteY="95dp" />
+
+        <TextView
+            android:id="@+id/count_player_two"
+            android:layout_width="310dp"
+            android:layout_height="192dp"
+            android:text="501"
+            android:textAlignment="center"
+            android:textColor="@color/orange"
+            android:textSize="160sp" />
+
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

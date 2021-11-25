@@ -7,8 +7,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class GameActivity extends AppCompatActivity {
+    Button btn_viewGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,9 +18,20 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         hideNavigationBar();
         FragmentOnCreate(new FragmentBullshot());
+        btn_viewGame = findViewById(R.id.viewGame);
+        btn_viewGame.setOnClickListener(v -> replaceFragment(new FragmentGameDisplay()));
     }
 
     private void FragmentOnCreate(Fragment fragment) {
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout_game, fragment);
+        fragmentTransaction.commit();
+
+    }
+
+    private void replaceFragment(Fragment fragment) {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

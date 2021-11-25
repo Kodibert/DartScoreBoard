@@ -8,19 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-
-public class FragmentBullshot extends Fragment {
-
+public class FragmentGameDisplay extends Fragment {
     View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_bullshot, container, false);
+        view = inflater.inflate(R.layout.fragment_game_display, container, false);
         return view;
     }
-
 
 }
