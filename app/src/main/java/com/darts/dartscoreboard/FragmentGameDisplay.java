@@ -5,17 +5,40 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
 public class FragmentGameDisplay extends Fragment {
     private int currentValue = 0;
 
+    private int numberOfPlayers;
+    private int[] scorePlayer;
+    private int activePlayer; // 0 bis Spieleranzahl - 1
+
+    private TextView tvScorePlayer1;
+    private TextView tvScorePlayer2;
+
+    private View framePlayer1;
+    private View framePlayer2;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        int gameType = 501; // todo fragment parameter
+
+        numberOfPlayers = 2;
+        scorePlayer = new int[]{gameType, gameType};
+        activePlayer = 0;
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_game_display, container, false);
+
+        tvScorePlayer1 = view.findViewById(R.id.count_player_one);
+        tvScorePlayer2 = view.findViewById(R.id.count_player_two);
+
+        framePlayer1 = view.findViewById(R.id.frame_count_player_one);
+        framePlayer2 = view.findViewById(R.id.frame_count_player_two);
 
         view.addOnUnhandledKeyEventListener((v, event) -> {
             if (event.getAction() == KeyEvent.ACTION_UP) {
@@ -23,6 +46,8 @@ public class FragmentGameDisplay extends Fragment {
             }
             return true;
         });
+
+        updateUserInterface();
 
         return view;
     }
@@ -52,7 +77,38 @@ public class FragmentGameDisplay extends Fragment {
         }
     }
 
-    private void submitValue(int currentValue) {
-        System.out.println("submit " + currentValue);
+    private void submitValue(int value) {
+        System.out.println("submit " + value);
+
+        int currentScore = scorePlayer[activePlayer];
+
+        if (value == currentScore) {
+            // gewonnen todo
+        } else if (value <= currentScore - 2) {
+            // Gültiger Wurf -> subtrahieren
+            scorePlayer[activePlayer] -= value;
+        } else {
+            // überfressen
+        }
+
+        activePlayer = activePlayer + 1;
+        if (activePlayer == numberOfPlayers) {
+            activePlayer = 0;
+        }
+
+        updateUserInterface();
+    }
+
+    private void updateUserInterface() {
+        tvScorePlayer1.setText(String.valueOf(scorePlayer[0]));
+        tvScorePlayer2.setText(String.valueOf(scorePlayer[1]));
+
+        if (activePlayer == 0) {
+            framePlayer1.setBackgroundResource(R.drawable.border_count);
+            framePlayer2.setBackgroundResource(R.drawable.border_count_wait);
+        } else {
+            framePlayer1.setBackgroundResource(R.drawable.border_count_wait);
+            framePlayer2.setBackgroundResource(R.drawable.border_count);
+        }
     }
 }
