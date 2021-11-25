@@ -11,15 +11,19 @@
         android:theme="@style/Theme.DartScoreBoard">
         <activity
             android:name=".GameActivity"
+            android:screenOrientation="landscape"
             android:exported="false" />
         <activity
             android:name=".StatisticActivity"
+            android:screenOrientation="landscape"
             android:exported="false" />
         <activity
             android:name=".SettingsActivity"
+            android:screenOrientation="landscape"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="landscape"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
