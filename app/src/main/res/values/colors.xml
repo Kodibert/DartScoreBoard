@@ -14,4 +14,5 @@
     <color name="orange_var">#E64A19</color>
     <color name="yellow">#FFC13B</color>
     <color name="white_grey">#F5F0E1</color>
+    <color name="white_grey_alpha">#C0F5F0E1</color>
 </resources>
