@@ -1,25 +1,24 @@
 package com.darts.dartscoreboard;
 
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
 public class GameActivity extends AppCompatActivity {
-    Button btn_viewGame;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         hideNavigationBar();
         FragmentOnCreate(new FragmentBullshot());
-        btn_viewGame = findViewById(R.id.viewGame);
-        btn_viewGame.setOnClickListener(v -> replaceFragment(new FragmentGameDisplay()));
+    }
+
+    public void startBullshotGame() {
+        replaceFragment(new FragmentGameDisplay());
     }
 
     private void FragmentOnCreate(Fragment fragment) {

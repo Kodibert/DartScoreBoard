@@ -19,8 +19,15 @@ public class FragmentBullshot extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_bullshot, container, false);
+
+        View startGameButton = view.findViewById(R.id.start_game);
+        startGameButton.setOnClickListener(v -> {
+            GameActivity activity = (GameActivity) getActivity();
+            if (activity != null) {
+                activity.startBullshotGame();
+            }
+        });
+
         return view;
     }
-
-
 }
