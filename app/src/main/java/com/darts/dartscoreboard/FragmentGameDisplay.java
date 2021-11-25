@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -61,7 +62,7 @@ public class FragmentGameDisplay extends Fragment {
             int digit = keyCode - KeyEvent.KEYCODE_0;
 
             int newValue = currentValue * 10 + digit;
-            if (newValue <= 180) {
+            if (newValue >= 0) {
                 currentValue = newValue;
             }
         }
@@ -79,6 +80,11 @@ public class FragmentGameDisplay extends Fragment {
 
     private void submitValue(int value) {
         System.out.println("submit " + value);
+
+        if (value > 180) {
+            Toast.makeText(getContext(), "Wrong value", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         int currentScore = scorePlayer[activePlayer];
 
