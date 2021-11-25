@@ -63,7 +63,7 @@
             android:layout_height="192dp"
             android:text="501"
             android:textAlignment="center"
-            android:textColor="@color/orange"
+            android:textColor="@color/orange_var"
             android:textSize="160sp" />
     </FrameLayout>
 
@@ -106,7 +106,7 @@
             android:layout_height="192dp"
             android:text="501"
             android:textAlignment="center"
-            android:textColor="@color/orange"
+            android:textColor="@color/orange_var"
             android:textSize="160sp" />
 
     </FrameLayout>
