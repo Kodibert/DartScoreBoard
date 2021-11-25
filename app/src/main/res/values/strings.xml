@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">DartScoreBoard</string>
+    <string name="btn_settings">Game Settings</string>
+    <string name="header_screen_pair">DartScoreBoard</string>
+    <string name="dart_score_board">DartScoreBoard</string>
+    <string name="sub_header_start">Pair Device</string>
+    <string name="btn_start">Start</string>
+    <string name="btn_quit">Quit</string>
+    <string name="header_game_settings">Game Settings</string>
+    <string name="header_statistic">Game Statistics</string>
+    <string name="btn_start_game">Start Game</string>
+    <string name="btn_statistic">Game Statistics</string>
+    <string name="btn_player">Add Player</string>
+    <string name="btn_game_settings">Game Settings</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_game_settings">FragmentGameSettings</string>
+    <string name="btn_statistic_last_game">Last Game</string>
+    <string name="btn_statistic_overall">Overall Games</string>
+    <string name="add_player">Add</string>
+    <string name="checkout_fav">Checknumber</string>
+    <string name="check_nr">CheckNr</string>
+    <string name="input_name">Enter Name</string>
+    <string name="delete_player">Delete</string>
+    <string name="boolean_active">Player Selected</string>
+    <string name="btn_done_AddPlayer">Done</string>
+</resources>

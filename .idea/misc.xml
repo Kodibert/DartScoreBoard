@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Nerdbert/Desktop/DartScoreBoard/app/src/main/res/layout-land/activity_main.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/Nerdbert/Desktop/DartScoreBoard/app/src/main/res/layout/activity_game.xml" value="0.22" />
+        <entry key="..\:/Users/Nerdbert/Desktop/DartScoreBoard/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Nerdbert/Desktop/DartScoreBoard/app/src/main/res/layout/activity_settings.xml" value="0.18" />
+        <entry key="..\:/Users/Nerdbert/Desktop/DartScoreBoard/app/src/main/res/layout/activity_statistic.xml" value="0.18" />
+        <entry key="..\:/Users/Nerdbert/Desktop/DartScoreBoard/app/src/main/res/layout/fragment_1_settings.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/Nerdbert/Desktop/DartScoreBoard/app/src/main/res/layout/fragment_add_player.xml" value="0.22" />
+        <entry key="..\:/Users/Nerdbert/Desktop/DartScoreBoard/app/src/main/res/layout/fragment_bullshot.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/Nerdbert/Desktop/DartScoreBoard/app/src/main/res/layout/fragment_game_settings.xml" value="0.14" />
+        <entry key="..\:/Users/Nerdbert/Desktop/DartScoreBoard/app/src/main/res/layout/fragment_settings_overview.xml" value="0.22" />
+        <entry key="..\:/Users/Nerdbert/Desktop/DartScoreBoard/app/src/main/res/layout/fragment_statistic_last_game.xml" value="0.30085470085470084" />
+        <entry key="..\:/Users/Nerdbert/Desktop/DartScoreBoard/app/src/main/res/layout/fragment_statistic_overall.xml" value="0.30085470085470084" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
