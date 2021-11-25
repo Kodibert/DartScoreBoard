@@ -10,6 +10,10 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Deque;
+
 public class FragmentGameDisplay extends Fragment {
     private int currentValue = 0;
 
@@ -23,6 +27,9 @@ public class FragmentGameDisplay extends Fragment {
     private View framePlayer1;
     private View framePlayer2;
 
+    private Deque<GameState> undoStack = new ArrayDeque<>();
+    private Deque<GameState> redoStack = new ArrayDeque<>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -31,6 +38,9 @@ public class FragmentGameDisplay extends Fragment {
         numberOfPlayers = 2;
         scorePlayer = new int[]{gameType, gameType};
         activePlayer = 0;
+
+        undoStack.clear();
+        redoStack.clear();
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_game_display, container, false);
@@ -76,6 +86,14 @@ public class FragmentGameDisplay extends Fragment {
 
             currentValue = 0;
         }
+
+        if (keyCode == KeyEvent.KEYCODE_NUMPAD_SUBTRACT || keyCode == KeyEvent.KEYCODE_U) {
+            undo();
+        }
+
+        if (keyCode == KeyEvent.KEYCODE_NUMPAD_ADD || keyCode == KeyEvent.KEYCODE_R) {
+            redo();
+        }
     }
 
     private void submitValue(int value) {
@@ -85,6 +103,10 @@ public class FragmentGameDisplay extends Fragment {
             Toast.makeText(getContext(), "Wrong value", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        undoStack.addLast(new GameState(scorePlayer, activePlayer));
+
+        redoStack.clear();
 
         int currentScore = scorePlayer[activePlayer];
 
@@ -105,7 +127,38 @@ public class FragmentGameDisplay extends Fragment {
         updateUserInterface();
     }
 
+    private void undo() {
+        if (undoStack.isEmpty())
+            return;
+
+        redoStack.addLast(new GameState(scorePlayer, activePlayer));
+
+        GameState gameState = undoStack.removeLast();
+
+        this.scorePlayer = Arrays.copyOf(gameState.scorePlayer, gameState.scorePlayer.length);
+        this.activePlayer = gameState.activePlayer;
+
+        updateUserInterface();
+    }
+
+    private void redo() {
+        if (redoStack.isEmpty())
+            return;
+
+        undoStack.addLast(new GameState(scorePlayer, activePlayer));
+
+        GameState gameState = redoStack.removeLast();
+
+        this.scorePlayer = Arrays.copyOf(gameState.scorePlayer, gameState.scorePlayer.length);
+        this.activePlayer = gameState.activePlayer;
+
+        updateUserInterface();
+    }
+
     private void updateUserInterface() {
+        System.out.println("undoStack = " + undoStack);
+        System.out.println("redoStack = " + redoStack);
+
         tvScorePlayer1.setText(String.valueOf(scorePlayer[0]));
         tvScorePlayer2.setText(String.valueOf(scorePlayer[1]));
 
@@ -115,6 +168,24 @@ public class FragmentGameDisplay extends Fragment {
         } else {
             framePlayer1.setBackgroundResource(R.drawable.border_count_wait);
             framePlayer2.setBackgroundResource(R.drawable.border_count);
+        }
+    }
+
+    private static class GameState {
+        private int[] scorePlayer;
+        private int activePlayer; // 0 bis Spieleranzahl - 1
+
+        public GameState(int[] scorePlayer, int activePlayer) {
+            this.scorePlayer = Arrays.copyOf(scorePlayer, scorePlayer.length);
+            this.activePlayer = activePlayer;
+        }
+
+        @Override
+        public String toString() {
+            return "GameState{" +
+                    "scorePlayer=" + Arrays.toString(scorePlayer) +
+                    ", activePlayer=" + activePlayer +
+                    '}';
         }
     }
 }
